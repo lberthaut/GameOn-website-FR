@@ -7,13 +7,19 @@ function editNav() {
   }
 }
 
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
+const listFormData = document.querySelectorAll(".formData");
+const form = document.querySelector('form[name="reserve"]');
+const exitButton = document.querySelector(".close");
+const modalBody = document.querySelector(".modal-body");
+const checkConditions = document.querySelector('.checkbox1');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
 
 // launch modal form
 function launchModal() {
@@ -21,3 +27,34 @@ function launchModal() {
 }
 
 
+//Exit modal form
+exitButton.addEventListener("click", exitModal);
+
+function exitModal(){
+  modalbg.style.display = "none";
+}
+
+
+function conditionsdChecked(){
+  if(checkConditions.onclick == false){
+    return alert("Veuillez cocher les conditions d'utilisations");
+  }
+}
+
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+   if (this.reportValidity()) {
+    form.style.display = "none";
+    modalBody.innerHTML = "<p>Merci ! Votre réservation a été reçue.</p>"
+   } else {
+     alert("Veuillez réessayer");
+   }
+    });
+
+
+
+
+
+//*setcustomvalidity*//
