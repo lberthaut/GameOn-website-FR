@@ -34,14 +34,17 @@ function exitModal(){
   modalbg.style.display = "none";
 }
 
-
+//Checkbox CGU checked
 function conditionsdChecked(){
   if(checkConditions.onclick == false){
     return alert("Veuillez cocher les conditions d'utilisations");
   }
 }
 
+// Click behind modal to close modal
 
+
+//submit modal
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
