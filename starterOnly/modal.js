@@ -37,11 +37,17 @@ function exitModal(){
 //Checkbox CGU checked
 function conditionsdChecked(){
   if(checkConditions.onclick == false){
-    return alert("Veuillez cocher les conditions d'utilisations");
+    alert("Veuillez cocher les conditions d'utilisations");
   }
 }
 
-// Click behind modal to close modal
+// Checkbox city required
+function cityChecked(){
+  if(listFormData.checked<1){
+    alert("Veuillez cocher au moins une ville");
+  }
+}
+
 
 
 //submit modal
