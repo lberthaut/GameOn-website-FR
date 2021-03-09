@@ -11,11 +11,10 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const listFormData = document.querySelectorAll(".formData");
 const form = document.querySelector('form[name="reserve"]');
 const exitButton = document.querySelector(".close");
 const modalBody = document.querySelector(".modal-body");
-const checkConditions = document.querySelector('.checkbox1');
+const checkConditions = document.querySelector('#checkbox1');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -35,17 +34,22 @@ function exitModal(){
 }
 
 //Checkbox CGU checked
-function conditionsdChecked(){
-  if(checkConditions.onclick == false){
+function conditionsChecked(){
+  if(checkConditions.checked == false){
     alert("Veuillez cocher les conditions d'utilisations");
+    return false;
   }
+  return true;
 }
 
 // Checkbox city required
 function cityChecked(){
-  if(listFormData.checked<1){
+  let listLocation = document.querySelectorAll('[name="location"]:checked');
+  if(listLocation.length != 1){
     alert("Veuillez cocher au moins une ville");
+    return false;
   }
+  return true;
 }
 
 
@@ -54,11 +58,9 @@ function cityChecked(){
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
-   if (this.reportValidity()) {
+   if (this.reportValidity() && cityChecked() && conditionsChecked()) {
     form.style.display = "none";
     modalBody.innerHTML = "<p>Merci ! Votre réservation a été reçue.</p>"
-   } else {
-     alert("Veuillez réessayer");
    }
     });
 
