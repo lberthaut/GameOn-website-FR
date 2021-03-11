@@ -16,56 +16,50 @@ const exitButton = document.querySelector(".close");
 const modalBody = document.querySelector(".modal-body");
 const checkConditions = document.querySelector('#checkbox1');
 
-// launch modal event
+
+// Ouverture de la modal d'inscription
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-
-// launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
 
 
-//Exit modal form
+//Fermeture de la modal via le bouton (X) "fermer"
 exitButton.addEventListener("click", exitModal);
 
 function exitModal(){
   modalbg.style.display = "none";
 }
 
-//Checkbox CGU checked
+
+//Fonction de vérification des CGU cochés
 function conditionsChecked(){
   if(checkConditions.checked == false){
-    alert("Veuillez cocher les conditions d'utilisations");
+    alert("Veuillez cocher les conditions d'utilisation");
     return false;
   }
   return true;
 }
 
-// Checkbox city required
+
+// Fonction de vérification d'une ville cochée
 function cityChecked(){
   let listLocation = document.querySelectorAll('[name="location"]:checked');
   if(listLocation.length != 1){
-    alert("Veuillez cocher au moins une ville");
+    alert("Veuillez sélectionner une ville");
     return false;
   }
   return true;
 }
 
 
-
-//submit modal
+//Vérification des conditions requises de la modal, puis validation
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
    if (this.reportValidity() && cityChecked() && conditionsChecked()) {
     form.style.display = "none";
-    modalBody.innerHTML = "<p>Merci ! Votre réservation a été reçue.</p>"
+    modalBody.innerHTML = "<p>Merci ! Votre réservation a bien été reçue.</p>"
    }
     });
-
-
-
-
-
-//*setcustomvalidity*//
