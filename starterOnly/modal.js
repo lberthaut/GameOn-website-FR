@@ -25,7 +25,7 @@ function launchModal() {
 }
 
 
-//Fermeture de la modal via le bouton (X) "fermer"
+//Fermeture de la modal via le bouton (X)
 exitButton.addEventListener("click", exitModal);
 
 function exitModal(){
