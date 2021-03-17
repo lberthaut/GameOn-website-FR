@@ -54,7 +54,7 @@ function cityChecked(){
 }
 
 
-//Vérification des conditions requises de la modal, puis validation
+//Vérification des conditions checkbox requises de la modal, puis validation
 form.addEventListener('submit', function (event) {
   event.preventDefault();
 
