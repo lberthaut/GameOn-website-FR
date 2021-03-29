@@ -35,7 +35,7 @@ function exitModal(){
 
 //Fonction de vérification des CGU cochés
 function conditionsChecked(){
-  if(checkConditions.checked == false){
+  if(checkConditions.checked === false){
     alert("Veuillez cocher les conditions d'utilisation");
     return false;
   }
@@ -46,7 +46,7 @@ function conditionsChecked(){
 // Fonction de vérification d'une ville cochée
 function cityChecked(){
   let listLocation = document.querySelectorAll('[name="location"]:checked');
-  if(listLocation.length != 1){
+  if(listLocation.length !== 1){
     alert("Veuillez sélectionner une ville");
     return false;
   }
@@ -62,4 +62,4 @@ form.addEventListener('submit', function (event) {
     form.style.display = "none";
     modalBody.innerHTML = "<p>Merci ! Votre réservation a bien été reçue.</p>"
    }
-    });
+});
